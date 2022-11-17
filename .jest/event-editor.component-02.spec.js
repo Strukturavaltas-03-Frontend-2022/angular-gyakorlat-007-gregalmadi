@@ -50285,6 +50285,19 @@ If '${name}' is a directive input, make sure the directive is imported by the cu
   <h3 class="text-center mb-4">Event Editor</h3>
 
   <div class="form-group mb-1">
+    <label for="name">Id</label>
+    <input
+      [(ngModel)]="event.id"
+      id="Id"
+      type="text"
+      name="id"
+      placeholder="id"
+      class="form-control"
+      readonly
+    />
+  </div>
+
+  <div class="form-group mb-1">
     <label for="name">Name</label>
     <input
       [(ngModel)]="event.name"
@@ -50413,7 +50426,9 @@ If '${name}' is a directive input, make sure the directive is imported by the cu
       }));
     }
     onUpdate(eventForm) {
-      this.eventService.update(eventForm.value).subscribe((event) => this.router.navigate(["/"]));
+      this.eventService.update(eventForm.value).subscribe((event) => {
+        this.router.navigate(["/"]);
+      });
     }
   };
   EventEditorComponent = __decorateClass([
